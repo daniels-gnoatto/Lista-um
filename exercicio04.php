@@ -1,39 +1,38 @@
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calcular o fatorial de um número.</title>
 </head>
-
 <body>
-
     <form method="POST" action="">
-
-        <label for="numero_tabuada">Veja a tabuada desejada:</label>
-        <input type="number" id="numero_tabuada" name="numero_tabuada" required>
-        <br>
-        <button type="submit" name="fazer_tabuada">Veja a Tabuada</button>
+            <label for="numero">Calcular o fatorial de um número.</label>
+            <input type="number" id="numero" name="numero" required>
+            <button type="submit" name="fatorial">Fatorial</button>
     </form>
 
     <?php
+        function fatorial($numero) {
+            $fatorial = 1;
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $numero = $_POST['numero_tabuada'];
+            for($i = 1; $i <= $numero; $i++){
+                $fatorial *= $i;
+                echo "$fatorial * = $i";
+                echo "<br>";
+            };
+        
+            return($fatorial);    
+        };
 
-        function tabuada($numero)
-        {
-            for ($i = $numero; $i >= 2; $i--) {
-                $r = $i - 1;
-                $resultado = $i * $r;
-                $valor = $valor + $resultado;
-                echo "$i x $r = $resultado <br>";
-            }
-            echo $valor;
-        }
-    }
-    tabuada($numero);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['fatorial'])){
+                $numeroFatorial = $_POST['numero'];
+                
+                $resultado = fatorial($numeroFatorial);  
+                echo "O fatorial é = $resultado";
+            };
+        };
+        
     ?>
 </body>
-
 </html>
