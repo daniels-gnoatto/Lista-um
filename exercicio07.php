@@ -8,7 +8,7 @@
 
 <body>
 <form method="POST" action="">
-        <label for="numero">Veja quais os divisores do seu número:</label>
+        <label for="numero">Veja quais números são perfeitos:</label>
         <input type="number" id="numero" name="numero" required>
         <button type="submit" name=" verificar_numero">Verificar</button>
     </form>
