@@ -29,11 +29,7 @@
         echo "Não é palindromo";
     }
 
-
-
-
     ?>
-
-
+    
 </body>
 </html>
