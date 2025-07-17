@@ -16,18 +16,21 @@
 
 
     <?php
+    $valor1 = (int)$_POST['num1'];
+    $valor2 = (int)$_POST['num2'];
+    $soma = 0;
 
-        $numero1 = (int)$_POST['num1'];
-        $numero2 = (int)$_POST['num2'];
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['verificar_numero'])){
-            $contagem = 0;
-            for ($i = 1; $i <= $numero; $i++){
-                if($i % 2 == 0){
-                    $contagem += 1;
-                }
-            }
+    if ($valor1 > $valor2){
+        for ($i = $valor2; $i < $valor1; $i++){
+            $soma += $i;
         }
+    }else{
+        for ($i = $valor1; $i < $valor2; $i++){
+            $soma += $i;
+        }
+    }
 
+        echo "A soma de todos os números entre $valor1 e $valor2 é $soma";
     ?>
 
 
